@@ -1,34 +1,58 @@
----
-group: template
-name: middleware
-title: 中间件工程
----
+# dn-middleware-eslint
 
-## dn-template-middleware
+Dawn eslint 中间件
 
-> 参考集团前端规约: [http://gitlab.alibaba-inc.com/f2e-specs/style-guide](http://gitlab.alibaba-inc.com/f2e-specs/style-guide)
+## Usage
 
-中间件模板，用于快速的创建一个 Dawn 中间件工程，和普通的 node 工程模板相比，该模板已包括一个极简的中间件示例。
+```yml
+init:
+  - name: eslint
+    stage: init
+    npmAlias: tnpm
+    extendsName: ali
+    config:
+      parser: babel-eslint
+      plugins:
+        - react
+      globals:
+        navigator: true
+        window: true
+      env:
+        es6: true
 
+dev:
+  - name: clean
+  - name: faked
+  - name: eslint
+    stage: preload
+  - name: webpack
+    inject:
+      - babel-polyfill
+    entry:
+      (0): ./src/scripts/*.js
+    template: ./assets/*.html
+    sourceMap: true
+    common:
+      disabled: true
+    loose: true
+    watch: true
+    compress: false
+  - name: server
+  - name: browser-sync
 
-创建一个中间件
-
-```sh
-$ dn init -t middleware
+eslint:
+  - name: eslint
+    fix: true
 ```
 
-如果你的 dn 连接的是默认服务，也可以从模板列表中选择
+`eslint` 中间件主要有三部分功能:
+* `eslint` 及其配置项的安装
+* 结合 `webpack-loader` 开发过程中 `lint`
+* 单独 `dn run eslint` 查错及自动修复
 
-```sh
-$ dn init
-```
-
-可在以类似如下的菜单中选择 `middleware` 模板
-```sh
-? Found 3 templates (Use arrow keys)
-  1. front      : Blank front end project template
-  2. node       : Blank node project template
-❯ 3. middleware : Dawn middleware project template
-```
-
-工程初始化完成后，就可以使用 `dn` 相关命令进行开发构建了。
+| 参数 | 类型 | 默认值 | 备注 |
+| --- | --- | --- | --- |
+| stage | String | '' | enum{init,preload,} |
+| npmAlias | String | 'npm' | 即将废弃 |
+| extendsName | String | 'ali' | eslint-config-${extendsName} |
+| config | Object | {} | 自定 eslint 配置, 将会在 init 时写入 .eslintrc.json |
