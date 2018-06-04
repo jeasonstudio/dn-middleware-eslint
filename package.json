@@ -1,6 +1,6 @@
 {
   "name": "dn-middleware-eslint",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Dawn middleware eslint",
   "main": "./lib/index.js",
   "scripts": {
