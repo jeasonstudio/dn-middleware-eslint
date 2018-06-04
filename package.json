@@ -9,6 +9,9 @@
   "author": "Jeason <me@jeasonstudio.cn>",
   "license": "ISC",
   "dependencies": {
-    "eslint-loader": "^2.0.0"
+    "eslint-loader": "^2.0.0",
+    "chalk": "^2.4.1",
+    "strip-ansi": "^4.0.0",
+    "text-table": "^0.2.0"
   }
 }

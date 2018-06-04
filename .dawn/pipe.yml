@@ -1,12 +1,22 @@
 init:
-  - name: pkginfo
+  - name: $local
+    location: ./lib/index.js
+    stage: init
+    npmAlias: npm
+    extendsName: airbnb
+    globals:
+      navigator: true
+      window: true
+    env:
+      es6: true
 
 dev:
   - name: $local
     location: ./lib/index.js
 
-test:
-  - name: lint
+eslint:
+  - name: $local
+    location: ./lib/index.js
   
 publish:
   - name: shell
