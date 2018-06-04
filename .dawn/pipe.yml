@@ -4,11 +4,12 @@ init:
     stage: init
     npmAlias: npm
     extendsName: airbnb
-    globals:
-      navigator: true
-      window: true
-    env:
-      es6: true
+    config:
+      globals:
+        navigator: true
+        window: true
+      env:
+        es6: true
 
 dev:
   - name: $local
