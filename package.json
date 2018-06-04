@@ -6,9 +6,9 @@
   "scripts": {
     "test": "dn test"
   },
-  "author": "",
+  "author": "Jeason <me@jeasonstudio.cn>",
   "license": "ISC",
   "dependencies": {
-    "eslint-config-ali": "^3.1.0"
+    "eslint-loader": "^2.0.0"
   }
 }
