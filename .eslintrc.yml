@@ -1,0 +1,3 @@
+extends: ali
+env:
+  node: true
