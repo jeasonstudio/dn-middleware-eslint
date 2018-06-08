@@ -1,15 +1,10 @@
 init:
   - name: $local
     location: ./lib/index.js
-    stage: init
-    npmAlias: npm
-    extendsName: airbnb
+    extendsName: ali
     config:
-      globals:
-        navigator: true
-        window: true
       env:
-        es6: true
+        node: true
 
 dev:
   - name: $local

@@ -1,10 +1,6 @@
 {
-	"extends": "airbnb",
-	"globals": {
-		"navigator": true,
-		"window": true
-	},
+	"extends": "ali",
 	"env": {
-		"es6": true
+		"node": true
 	}
 }
