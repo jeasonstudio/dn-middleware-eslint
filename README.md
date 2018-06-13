@@ -7,8 +7,6 @@ Dawn eslint 中间件
 ```yml
 init:
   - name: eslint
-    stage: init
-    npmAlias: tnpm
     extendsName: ali
     config:
       parser: babel-eslint
@@ -24,7 +22,6 @@ dev:
   - name: clean
   - name: faked
   - name: eslint
-    stage: preload
   - name: webpack
     inject:
       - babel-polyfill
@@ -52,7 +49,7 @@ eslint:
 
 | 参数 | 类型 | 默认值 | 备注 |
 | --- | --- | --- | --- |
-| stage | String | '' | enum{init,preload,} |
-| npmAlias | String | 'npm' | 即将废弃 |
-| extendsName | String | 'ali' | eslint-config-${extendsName} |
+| stage | String | '' | enum{init,preload,}(已废弃) |
+| npmAlias | String | 'npm' | 即将废弃(已废弃) |
+| extendsName | String[]|String | 'ali' | eslint-config-${extendsName} |
 | config | Object | {} | 自定 eslint 配置, 将会在 init 时写入 .eslintrc.json |
